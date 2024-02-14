@@ -1,0 +1,66 @@
+package com.te.persist;
+
+import java.util.ArrayList;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	ArrayList<Laptop> lapList = new ArrayList<Laptop>();
+    	lapList.add(new Laptop(2, "dell"));
+    	lapList.add(new Laptop(3, "hp"));
+    	StudentName stud=new StudentName();
+    	stud.setFirstName("ramesh");
+    	stud.setMiddleName("bapu");
+    	stud.setLasName("bodke");
+    	Student student = new Student();
+    	student.setName(stud);
+    	student.setPhone("12345678");
+    	student.setRoll(2);
+    	student.setLaptop(lap);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+//       Configuration con = new Configuration().configure().addAnnotatedClass(Student.class);
+//       SessionFactory sf = con.buildSessionFactory();
+//       Session session = sf.openSession();
+//       Transaction tx = session.beginTransaction();
+//       session.save(student);
+//       tx.commit();
+    	Configuration a = new Configuration().configure().addAnnotatedClass(Student.class).addAnnotatedClass(Laptop.class);
+    	SessionFactory sf = a.buildSessionFactory();
+    	Session openSession = sf.openSession();
+    	Transaction tx = openSession.getTransaction();
+    	tx.begin();
+  // Object student2=  (Student)openSession.get(Student.class,2);
+    	openSession.save(lap);
+    	openSession.save(student);
+  //  	System.out.println(((Student) student2).getName());
+    	tx.commit();
+    
+    }
+}

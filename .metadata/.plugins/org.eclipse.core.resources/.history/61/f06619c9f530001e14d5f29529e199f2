@@ -1,0 +1,41 @@
+package com.te.persist;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity
+public class Student {
+	@Id
+	private int roll;
+	private StudentName name;
+	private String phone;
+	@OneToOne(mappedBy = "lid")
+	private Laptop laptop;
+	public Laptop getLaptop() {
+		return laptop;
+	}
+	public void setLaptop(Laptop laptop) {
+		this.laptop = laptop;
+	}
+	public int getRoll() {
+		return roll;
+	}
+	public void setRoll(int roll) {
+		this.roll = roll;
+	}
+	public StudentName getName() {
+		return name;
+	}
+	public void setName(StudentName name) {
+		this.name = name;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	
+
+}
